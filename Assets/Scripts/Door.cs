@@ -53,6 +53,7 @@ public class Door : MonoBehaviour
 		if (canOpen && Input.GetKeyDown(KeyCode.E))
 		{
 			iTween.RotateTo(gameObject, doorRotation, doorSpeed);
+			audio.Play();
 		}
 	}
 

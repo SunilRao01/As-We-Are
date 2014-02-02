@@ -188,6 +188,15 @@ public class Player : MonoBehaviour
 	{
 		Vector3 moveDirection = new Vector3(0, 0, 0);
 		
+		if ((Mathf.Abs(Input.GetAxis("Vertical")) > 0 || Mathf.Abs(Input.GetAxis("Horizontal")) > 0))
+		{
+			audio.mute = false;
+		}
+		else if ((Mathf.Abs(Input.GetAxis("Vertical")) == 0 || Mathf.Abs(Input.GetAxis("Horizontal")) == 0))
+		{
+			audio.mute = true;
+		}
+
 		if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 && Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
 		{
 			moveDirection = (Camera.main.transform.forward * Input.GetAxisRaw("Vertical")) + (Camera.main.transform.right * Input.GetAxisRaw("Horizontal"));
